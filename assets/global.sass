@@ -1,0 +1,63 @@
+@charset "utf-8"
+
+// custom variables
+$body-overflow-y: hidden
+
+// import bulma styles
+@import ./custom-bulma.sass
+
+// custom global styles
+html
+  background-color: rgb(62, 0, 0)
+
+body
+  height: 100vh
+  overflow-y: auto
+  background-color: #890000
+  background-image: linear-gradient(to top, rgb(57, 0, 0) 0%, transparent 100%)
+
+body:after
+  content: ''
+  pointer-events: none
+  animation: grain 12s steps(10) infinite
+  background-image: url('../static/transparent.png')
+  background-image: url('../static/noise.png')
+  background-image: url('../static/asfalt-light.png')
+  height: 350%
+  width: 300%
+  left: -50%
+  // z-index: -1
+  opacity: 0.4
+  position: fixed
+  top: -150%
+
+#app-outer
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+#app-inner
+  flex-grow: 1
+
+@keyframes grain
+  0%,
+  100%
+    transform: translate(0, 0)
+  10%
+    transform: translate(-5%, -10%)
+  20%
+    transform: translate(-15%, 5%)
+  30%
+    transform: translate(7%, -25%)
+  40%
+    transform: translate(-5%, 25%)
+  50%
+    transform: translate(-15%, 10%)
+  60%
+    transform: translate(15%, 0%)
+  70%
+    transform: translate(0%, 15%)
+  80%
+    transform: translate(3%, 35%)
+  90%
+    transform: translate(-10%, 10%)
