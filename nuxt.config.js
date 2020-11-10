@@ -7,7 +7,7 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'template',
+    title: 'Obradovic Nikola - Web Developer',
     meta: [
       { charset: 'utf-8' },
       {
@@ -17,6 +17,9 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    htmlAttrs: {
+      lang: 'en',
+    },
   },
 
   server: {
@@ -37,12 +40,14 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/svg',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     // '@nuxtjs/bulma',
+    '@nuxtjs/robots',
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -54,5 +59,7 @@ export default {
         },
       },
     },
+
+    // analyze: true,
   },
 }
