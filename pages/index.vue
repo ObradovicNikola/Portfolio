@@ -4,7 +4,7 @@
     <h1
       class="title is-size-1 is-size-3-mobile has-text-white has-text-centered"
     >
-      Full Stack web developer
+      a Full Stack web developer
     </h1>
 
     <div class="technologies">

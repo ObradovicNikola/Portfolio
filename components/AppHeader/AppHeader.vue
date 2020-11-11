@@ -77,7 +77,8 @@ export default { name, components, data }
 
 nav .nuxt-link-exact-active
   pointer-events: none
-  color: #ff470f !important
+  color: #00D1B2 !important
+  background: #1C1D25 !important
 
 .hamburger-cover
   margin-top: 0.5rem

@@ -14,6 +14,7 @@
             target="_blank"
             class="navbar-item"
             rel="noopener noreferrer"
+            aria-label="link to my github"
             ><GithubSvg
           /></a>
         </div>
@@ -23,6 +24,7 @@
             target="_blank"
             class="navbar-item"
             rel="noopener noreferrer"
+            aria-label="link to my linkedin"
             ><LinkedinSvg
           /></a>
         </div>
