@@ -66,7 +66,7 @@
 
         <div class="field is-grouped is-grouped-right">
           <div class="control">
-            <button class="button is-link">
+            <button class="button is-link" type="submit">
               <span> Send </span>
               <span class="icon">
                 <PaperPlaneSolidSvg />
