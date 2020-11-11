@@ -2,7 +2,7 @@
   <div class="page spaced">
     <p class="is-size-3 is-size-5-mobile has-text-white mb-4">I'm Nikola,</p>
     <h1
-      class="title is-size-1 is-size-3-mobile has-text-white has-text-centered"
+      class="is-size-1 is-size-3-mobile has-text-white has-text-centered has-text-weight-semibold"
     >
       a Full Stack web developer
     </h1>
