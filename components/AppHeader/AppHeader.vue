@@ -26,7 +26,10 @@
       </a>
     </div>
 
-    <nav class="navbar-menu" :class="{ 'is-active': hamburgerActive === true }">
+    <nav
+      class="navbar-menu p-0"
+      :class="{ 'is-active': hamburgerActive === true }"
+    >
       <div class="navbar-end">
         <NuxtLink to="/" class="navbar-item">Home</NuxtLink>
         <NuxtLink to="/contact" class="navbar-item">Contact</NuxtLink>
@@ -81,7 +84,6 @@ nav .nuxt-link-exact-active
   background: #1C1D25 !important
 
 .hamburger-cover
-  margin-top: 0.5rem
   background-color: rgba(240, 240, 240, 0.5)
   width: 100%
   height: 100vh
