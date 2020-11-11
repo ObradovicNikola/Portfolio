@@ -11,7 +11,7 @@
       </h1>
 
       <!-- <form class="mt-6" @submit.prevent="submitForm" -->
-      <form class="mt-6" name="contact" method="POST" data-netlify="true">
+      <form class="mt-6" name="contact" method="POST" netlify>
         <div class="field">
           <label class="label has-text-info" for="name">Name</label>
           <div class="control has-icons-left">
