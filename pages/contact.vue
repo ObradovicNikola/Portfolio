@@ -11,7 +11,7 @@
         Feel free to contact me
       </h1>
 
-      <form class="mt-6" @submit.prevent="submitForm">
+      <form ref="formspree" class="mt-6" @submit.prevent="submitForm">
         <div class="field">
           <label class="label has-text-info" for="name">Name</label>
           <div class="control has-icons-left">
@@ -102,20 +102,23 @@ function data() {
 }
 
 const methods = {
-  async submitForm() {
-    try {
-      const res = await this.$axios.$post('/api/mailjet', {
-        name: this.name,
-        email: this.email,
-        message: this.message,
-      })
+  submitForm() {
+    console.log('radi li')
+    const formData = new FormData()
 
-      this.formSent = true
-      if (res.message !== 'ok') this.formError = true
-      else this.formError = false
-    } catch (e) {
-      console.log(e)
-    }
+    formData.append('name', this.name)
+    formData.append('email', this.email)
+    formData.append('message', this.message)
+
+    // JavaScript file-like object
+    const content = '<a id="a"><b id="b">hey!</b></a>' // the body of the new file...
+    const blob = new Blob([content], { type: 'text/xml' })
+
+    formData.append('webmasterfile', blob)
+
+    const request = new XMLHttpRequest()
+    request.open('POST', 'https://formspree.io/f/mqkgleaz')
+    request.send(formData)
   },
 }
 

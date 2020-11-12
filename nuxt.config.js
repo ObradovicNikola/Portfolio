@@ -22,10 +22,10 @@ export default {
     },
   },
 
-  // server: {
-  //   host: '127.0.0.1',
-  //   port: 8888,
-  // },
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/global.sass'],
@@ -46,13 +46,8 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    '@nuxtjs/axios',
     '@nuxtjs/robots',
   ],
-
-  axios: {
-    baseURL: '/',
-  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
