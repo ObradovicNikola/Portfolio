@@ -1,9 +1,10 @@
 <template>
   <div class="page spaced has-text-white">
     <div v-show="formSent === true">
-      <p class="is-size-3 has-text-white">
+      <p v-if="formError === false" class="is-size-3 has-text-white">
         Thank you for contacting me. I will get back to you as soon as possible!
       </p>
+      <p v-else>Oops! Something went wrong.</p>
     </div>
     <div v-if="formSent === false">
       <h1 class="is-size-3 has-text-white has-text-weight-semibold">
@@ -43,7 +44,6 @@
               <EnvelopeSolidSvg />
             </span>
           </div>
-          <!-- <p class="help is-danger">This email is invalid</p> -->
         </div>
 
         <div class="field">
@@ -97,20 +97,22 @@ function data() {
     email: '',
     message: '',
     formSent: false,
+    formError: false,
   }
 }
 
 const methods = {
   async submitForm() {
     try {
-      const res = await this.$axios.$post('/.netlify/functions/mailjet', {
+      const res = await this.$axios.$post('/api/mailjet', {
         name: this.name,
-        recipient: this.email,
+        email: this.email,
         message: this.message,
       })
-      console.log('form sent')
-      console.log('response: ', res.body)
-      // this.formSent = true
+
+      this.formSent = true
+      if (res.message != 'ok') this.formError = true
+      else this.formError = false
     } catch (e) {
       console.log(e)
     }
