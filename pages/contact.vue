@@ -109,6 +109,7 @@ const methods = {
         message: this.message,
       })
       console.log('form sent')
+      console.log('response: ', res.body)
       // this.formSent = true
     } catch (e) {
       console.log(e)
