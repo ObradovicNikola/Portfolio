@@ -111,7 +111,7 @@ const methods = {
       })
 
       this.formSent = true
-      if (res.message != 'ok') this.formError = true
+      if (res.message !== 'ok') this.formError = true
       else this.formError = false
     } catch (e) {
       console.log(e)
