@@ -47,7 +47,14 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     '@nuxtjs/robots',
+    '@nuxtjs/gtm',
   ],
+
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GOOGLE_TAG_MANAGER_ID,
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
