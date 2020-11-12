@@ -103,7 +103,7 @@ function data() {
 const methods = {
   async submitForm() {
     try {
-      const res = await this.$axios.$post('/.netlify/functions/mailjet', {
+      const res = await this.$axios.$post('https://obradovicnikola.com/.netlify/functions/mailjet', {
         name: this.name,
         recipient: this.email,
         message: this.message,
