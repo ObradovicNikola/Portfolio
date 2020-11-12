@@ -101,12 +101,21 @@ function data() {
 }
 
 const methods = {
-  submitForm() {
-    // console.log('submitting the form')
-    // console.log('name: ', this.name)
-    // console.log('email', this.email)
-    // console.log('message', this.message)
-    this.formSent = true
+  async submitForm() {
+    try {
+      const res = await this.$axios.$post('/.netlify/functions/mailjet', {
+        name: this.name,
+        recipient: this.email,
+        message: this.message,
+      })
+      this.response = res
+      this.error = null
+      console.log('form sent')
+      // this.formSent = true
+    } catch (e) {
+      this.error = e.response
+      this.response = '—'
+    }
   },
 }
 
