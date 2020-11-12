@@ -1,10 +1,9 @@
 <template>
   <div class="page spaced has-text-white">
     <div v-show="formSent === true">
-      <p v-if="formError === false" class="is-size-3 has-text-white">
+      <p class="is-size-3 has-text-white">
         Thank you for contacting me. I will get back to you as soon as possible!
       </p>
-      <p v-else>Oops! Something went wrong.</p>
     </div>
     <div v-if="formSent === false">
       <h1 class="is-size-3 has-text-white has-text-weight-semibold">
@@ -97,13 +96,11 @@ function data() {
     email: '',
     message: '',
     formSent: false,
-    formError: false,
   }
 }
 
 const methods = {
   submitForm() {
-    console.log('radi li')
     const formData = new FormData()
 
     formData.append('name', this.name)
@@ -119,6 +116,8 @@ const methods = {
     const request = new XMLHttpRequest()
     request.open('POST', 'https://formspree.io/f/mqkgleaz')
     request.send(formData)
+
+    this.formSent = true
   },
 }
 
