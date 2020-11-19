@@ -52,7 +52,7 @@
               id="message"
               v-model="message"
               class="textarea"
-              placeholder="Textarea"
+              placeholder="Type your message here"
               maxlength="2000"
               required
             ></textarea>
