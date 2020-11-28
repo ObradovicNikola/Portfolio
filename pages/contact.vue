@@ -100,11 +100,11 @@ function data() {
 }
 
 const methods = {
-  submitForm() {
+  async submitForm() {
     const request = new XMLHttpRequest()
-    request.open('POST', 'https://mailer.obradovicnikola.xyz/mail')
+    request.open('POST', 'https://mailer.obradovicnikola.xyz/mail', true)
     request.setRequestHeader('Content-type', 'application/json')
-    request.send(
+    await request.send(
       JSON.stringify({
         to: 'undefined',
         from: 'obradovicnikola.com',
