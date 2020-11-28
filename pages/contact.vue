@@ -101,18 +101,14 @@ function data() {
 
 const methods = {
   async submitForm() {
-    const request = new XMLHttpRequest()
-    request.open('POST', 'https://mailer.obradovicnikola.xyz/mail', true)
-    request.setRequestHeader('Content-type', 'application/json')
-    await request.send(
-      JSON.stringify({
-        to: 'undefined',
-        from: 'obradovicnikola.com',
-        name: this.name,
-        email: this.email,
-        message: this.message,
-      })
-    )
+    'http://dummy.restapiexample.com/api/v1/employees'
+    await this.$axios.$post('https://mailer.obradovicnikola.xyz/mail', {
+      to: 'undefined',
+      from: 'obradovicnikola.com',
+      name: this.name,
+      email: this.email,
+      message: this.message,
+    })
 
     this.formSent = true
   },

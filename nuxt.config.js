@@ -46,6 +46,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
+    '@nuxtjs/axios',
     '@nuxtjs/robots',
     '@nuxtjs/gtm',
   ],
