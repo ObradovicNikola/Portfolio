@@ -101,7 +101,6 @@ function data() {
 
 const methods = {
   async submitForm() {
-    'http://dummy.restapiexample.com/api/v1/employees'
     await this.$axios.$post('https://mailer.obradovicnikola.xyz/mail', {
       to: 'undefined',
       from: 'obradovicnikola.com',
