@@ -10,7 +10,7 @@
         Feel free to contact me
       </h1>
 
-      <form ref="formspree" class="mt-6" @submit.prevent="submitForm">
+      <form class="mt-6" @submit.prevent="submitForm">
         <div class="field">
           <label class="label has-text-info" for="name">Name</label>
           <div class="control has-icons-left">
@@ -101,21 +101,23 @@ function data() {
 
 const methods = {
   submitForm() {
-    const formData = new FormData()
-
-    formData.append('name', this.name)
-    formData.append('email', this.email)
-    formData.append('message', this.message)
-
     // JavaScript file-like object
     const content = '<a id="a"><b id="b">hey!</b></a>' // the body of the new file...
     const blob = new Blob([content], { type: 'text/xml' })
 
-    formData.append('webmasterfile', blob)
-
     const request = new XMLHttpRequest()
-    request.open('POST', 'https://formspree.io/f/mqkgleaz')
-    request.send(formData)
+    const emailHandler = process.env.EMAIL_HANDLER
+    const recepient = process.env.RECEPIENT
+    const emailHandlerSecret = process.env.EMAIL_HANDLER_SECRET
+    request.open('POST', emailHandler)
+    request.send({
+      to: recepient,
+      from: 'obradovicnikola.com',
+      name: this.name,
+      email: this.email,
+      message: this.message,
+      secret: emailHandlerSecret,
+    })
 
     this.formSent = true
   },
