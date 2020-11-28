@@ -103,14 +103,16 @@ const methods = {
   submitForm() {
     const request = new XMLHttpRequest()
     request.open('POST', 'https://mailer.obradovicnikola.xyz/mail')
-    request.setRequestHeader('Content-Type', 'application/json')
-    request.send({
-      to: 'undefined',
-      from: 'obradovicnikola.com',
-      name: this.name,
-      email: this.email,
-      message: this.message,
-    })
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+    request.send(
+      JSON.stringify({
+        to: 'undefined',
+        from: 'obradovicnikola.com',
+        name: this.name,
+        email: this.email,
+        message: this.message,
+      })
+    )
 
     this.formSent = true
   },
