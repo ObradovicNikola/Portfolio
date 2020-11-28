@@ -104,7 +104,7 @@ const methods = {
     const request = new XMLHttpRequest()
     request.open('POST', 'https://mailer.obradovicnikola.xyz/mail')
     request.send({
-      to: undefined,
+      to: 'undefined',
       from: 'obradovicnikola.com',
       name: this.name,
       email: this.email,
