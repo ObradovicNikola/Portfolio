@@ -101,22 +101,14 @@ function data() {
 
 const methods = {
   submitForm() {
-    // JavaScript file-like object
-    const content = '<a id="a"><b id="b">hey!</b></a>' // the body of the new file...
-    const blob = new Blob([content], { type: 'text/xml' })
-
     const request = new XMLHttpRequest()
-    const emailHandler = process.env.EMAIL_HANDLER
-    const recepient = process.env.RECEPIENT
-    const emailHandlerSecret = process.env.EMAIL_HANDLER_SECRET
-    request.open('POST', emailHandler)
+    request.open('POST', 'https://mailer.obradovicnikola.xyz/mail')
     request.send({
-      to: recepient,
+      to: undefined,
       from: 'obradovicnikola.com',
       name: this.name,
       email: this.email,
       message: this.message,
-      secret: emailHandlerSecret,
     })
 
     this.formSent = true
