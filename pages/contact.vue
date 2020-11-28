@@ -64,7 +64,11 @@
 
         <div class="field is-grouped is-grouped-right">
           <div class="control">
-            <button class="button is-link" type="submit">
+            <button
+              class="button is-link"
+              :class="{ 'is-loading': isLoading }"
+              type="submit"
+            >
               <span> Send </span>
               <span class="icon">
                 <PaperPlaneSolidSvg />
@@ -96,11 +100,13 @@ function data() {
     email: '',
     message: '',
     formSent: false,
+    isLoading: false,
   }
 }
 
 const methods = {
   async submitForm() {
+    this.isLoading = true
     await this.$axios.$post('https://mailer.obradovicnikola.xyz/mail', {
       to: 'undefined',
       from: 'obradovicnikola.com',
@@ -109,6 +115,7 @@ const methods = {
       message: this.message,
     })
 
+    this.isLoading = false
     this.formSent = true
   },
 }
