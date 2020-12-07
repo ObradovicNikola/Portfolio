@@ -107,13 +107,16 @@ function data() {
 const methods = {
   async submitForm() {
     this.isLoading = true
-    await this.$axios.$post('https://mailer.obradovicnikola.xyz/mail', {
-      to: 'undefined',
-      from: 'obradovicnikola.com',
-      name: this.name,
-      email: this.email,
-      message: this.message,
-    })
+
+    const formData = new FormData()
+    formData.append('name', this.name)
+    formData.append('email', this.email)
+    formData.append('message', this.message)
+
+    const url = 'https://mailer.obradovicnikola.xyz/mail'
+    const xhr = new XMLHttpRequest()
+    xhr.open('POST', url, true)
+    await xhr.send(formData)
 
     this.isLoading = false
     this.formSent = true
